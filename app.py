@@ -19,7 +19,7 @@ if st.button("Predict Price"):
         "Expected_Ride_Duration": expected_ride_duration
     }
     try:
-        response = requests.post("http://127.0.0.1:8000/predict-price", json=payload, timeout=10)
+        response = requests.post("https://dynamic-pricing-engine-hcnj.onrender.com/predict-price", json=payload, timeout=10)
         if response.status_code == 200:
             predicted_price = response.json()["predicted_price"]
             st.success(f"Predicted Price: ₹{predicted_price}")
